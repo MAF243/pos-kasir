@@ -26,27 +26,28 @@ This system was engineered with a strict focus on security, data integrity, and 
 - **Mass Assignment & IDOR Protection:** All Eloquent models strictly enforce `$fillable` arrays. Sensitive operations (like Cashier Shifts and Expenses) implement strict `auth()->id()` scoping to prevent Insecure Direct Object References (IDOR).
 - **Performance & DDoS Mitigation:** Widespread application of Eager Loading (`with()`) eradicates N+1 query bottlenecks, while strict API rate limiting (`throttle`) protects authentication and checkout endpoints from brute-force and spam attacks.
 ## 🛠️ Installation Guide
+
 Follow these steps to deploy the application locally:
+
 ### 1. Clone the Repository
 ```bash
 git clone https://github.com/yourusername/pos-kasir.git
 cd pos-kasir
-
-### 2. Install Backend Dependencies
-```bash
+2. Install Backend Dependencies
+Bash
 composer install
-
-### 3. Install Frontend Dependencies
-```bash
+3. Install Frontend Dependencies
+Bash
 npm install
-
-### 4. Configure Environment
+4. Configure Environment
 Copy the .env.example file and configure your database and Midtrans credentials.
-```bash
+
+Bash
 cp .env.example .env
 php artisan key:generate
 Update your .env file:
-env
+
+Cuplikan kode
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
@@ -56,27 +57,28 @@ DB_PASSWORD=
 MIDTRANS_SERVER_KEY="your-server-key"
 MIDTRANS_CLIENT_KEY="your-client-key"
 MIDTRANS_IS_PRODUCTION=false
-
-### 5. Run Migrations & Seeders
+5. Run Migrations & Seeders
 This will build your database schema and populate it with the default administrator account, permissions, and settings.
-```bash
+
+Bash
 php artisan migrate:fresh --seed
 Default Admin Login: admin@example.com / password
 
-### 6. Link Storage
+6. Link Storage
 Create a symbolic link to ensure product images and store logos are publicly accessible:
-```bash
-php artisan storage:link
 
-### 7. Start the Application
+Bash
+php artisan storage:link
+7. Start the Application
 You will need two terminal windows to run the frontend build engine and the backend server simultaneously.
 
 Terminal 1 (Vite/React):
-```bash
-npm run dev
 
+Bash
+npm run dev
 Terminal 2 (Laravel):
-```bash
+
+Bash
 php artisan serve
 Navigate to http://localhost:8000 to access the application.
 
