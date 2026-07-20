@@ -33,21 +33,26 @@ Follow these steps to deploy the application locally:
 ```bash
 git clone https://github.com/yourusername/pos-kasir.git
 cd pos-kasir
-2. Install Backend Dependencies
-Bash
-composer install
-3. Install Frontend Dependencies
-Bash
-npm install
-4. Configure Environment
-Copy the .env.example file and configure your database and Midtrans credentials.
+```
 
-Bash
+### 2. Install Backend Dependencies
+```bash
+composer install
+```
+
+### 3. Install Frontend Dependencies
+```bash
+npm install
+```
+
+### 4. Configure Environment
+Copy the `.env.example` file and configure your database and Midtrans credentials.
+```bash
 cp .env.example .env
 php artisan key:generate
-Update your .env file:
-
-Cuplikan kode
+```
+Update your `.env` file:
+```env
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
@@ -57,29 +62,34 @@ DB_PASSWORD=
 MIDTRANS_SERVER_KEY="your-server-key"
 MIDTRANS_CLIENT_KEY="your-client-key"
 MIDTRANS_IS_PRODUCTION=false
-5. Run Migrations & Seeders
+```
+
+### 5. Run Migrations & Seeders
 This will build your database schema and populate it with the default administrator account, permissions, and settings.
-
-Bash
+```bash
 php artisan migrate:fresh --seed
-Default Admin Login: admin@example.com / password
+```
+**Default Admin Login:** `admin@example.com` / `password`
 
-6. Link Storage
+### 6. Link Storage
 Create a symbolic link to ensure product images and store logos are publicly accessible:
-
-Bash
+```bash
 php artisan storage:link
-7. Start the Application
+```
+
+### 7. Start the Application
 You will need two terminal windows to run the frontend build engine and the backend server simultaneously.
 
-Terminal 1 (Vite/React):
-
-Bash
+**Terminal 1 (Vite/React):**
+```bash
 npm run dev
-Terminal 2 (Laravel):
+```
 
-Bash
+**Terminal 2 (Laravel):**
+```bash
 php artisan serve
-Navigate to http://localhost:8000 to access the application.
+```
+Navigate to `http://localhost:8000` to access the application.
 
-It's been a phenomenal journey building this enterprise POS system with you. You have an incredibly robust and well-engineered product on your hands. Congratulations on the completion of the project, and happy shipping!
+---
+*It's been a phenomenal journey building this enterprise POS system. You have an incredibly robust and well-engineered product on your hands. Congratulations on the completion of the project, and happy shipping!*
