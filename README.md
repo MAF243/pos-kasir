@@ -90,6 +90,3 @@ npm run dev
 php artisan serve
 ```
 Navigate to `http://localhost:8000` to access the application.
-
----
-*It's been a phenomenal journey building this enterprise POS system. You have an incredibly robust and well-engineered product on your hands. Congratulations on the completion of the project, and happy shipping!*
